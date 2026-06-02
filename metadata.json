@@ -1,0 +1,6 @@
+{
+  "name": "NASEEB GLOBAL TRAVEL & TOURS",
+  "description": "Premium travels management, visa assistance, Hajj & Umrah packages, and travel planning tools.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

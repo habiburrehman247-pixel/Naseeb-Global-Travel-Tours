@@ -1,0 +1,48 @@
+{
+  "entities": {
+    "booking": {
+      "title": "Booking",
+      "description": "A travel package reservation or custom trip booking.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "fullName": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "packageType": { "type": "string" },
+        "travelersCount": { "type": "integer" },
+        "departureDate": { "type": "string" },
+        "specialRequests": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "confirmed", "cancelled"] },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "userId": { "type": "string" }
+      },
+      "required": ["fullName", "email", "phone", "packageType", "travelersCount", "departureDate", "status", "createdAt", "userId"]
+    },
+    "inquiry": {
+      "title": "Inquiry",
+      "description": "A contact request or visa assistance inquiry.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "fullName": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "subject": { "type": "string" },
+        "message": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["fullName", "email", "phone", "subject", "message", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/bookings/{bookingId}": {
+      "schema": "booking",
+      "description": "Collection of all client travel bookings and trip planner reservations."
+    },
+    "/inquiries/{inquiryId}": {
+      "schema": "inquiry",
+      "description": "Collection of all general and visa contact inquiries."
+    }
+  }
+}

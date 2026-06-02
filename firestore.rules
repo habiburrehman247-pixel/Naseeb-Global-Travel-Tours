@@ -1,0 +1,91 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Global safety catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+    
+    // Primitives
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    function isAdmin() {
+      return isSignedIn() && request.auth.token.email == 'habiburrehman247@gmail.com';
+    }
+    
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+    
+    function isVerifiedUser() {
+      return isSignedIn() && request.auth.token.email_verified == true;
+    }
+
+    // Helper to extract incoming resource state
+    function incoming() {
+      return request.resource.data;
+    }
+    
+    function existing() {
+      return resource.data;
+    }
+
+    // Validation for Booking document
+    function isValidBooking(data) {
+      return data.fullName is string && data.fullName.size() >= 2 && data.fullName.size() <= 100
+        && data.email is string && data.email.size() >= 5 && data.email.size() <= 100
+        && data.phone is string && data.phone.size() >= 7 && data.phone.size() <= 30
+        && data.packageType is string && data.packageType.size() >= 3 && data.packageType.size() <= 100
+        && data.travelersCount is int && data.travelersCount >= 1 && data.travelersCount <= 100
+        && data.departureDate is string && data.departureDate.size() >= 10 && data.departureDate.size() <= 20
+        && data.status is string && (data.status == 'pending' || data.status == 'confirmed' || data.status == 'cancelled')
+        && data.userId is string && data.userId.size() <= 128;
+    }
+
+    // Validation for Inquiry document
+    function isValidInquiry(data) {
+      return data.fullName is string && data.fullName.size() >= 2 && data.fullName.size() <= 100
+        && data.email is string && data.email.size() >= 5 && data.email.size() <= 100
+        && data.phone is string && data.phone.size() >= 7 && data.phone.size() <= 30
+        && data.subject is string && data.subject.size() >= 3 && data.subject.size() <= 200
+        && data.message is string && data.message.size() >= 10 && data.message.size() <= 2000;
+    }
+
+    // Bookings Rules
+    match /bookings/{bookingId} {
+      allow get: if isSignedIn() && (resource.data.userId == request.auth.uid || isAdmin());
+      allow list: if isSignedIn() && (resource.data.userId == request.auth.uid || isAdmin());
+      
+      allow create: if isSignedIn() 
+        && isValidBooking(incoming())
+        && incoming().userId == request.auth.uid 
+        && incoming().status == 'pending'
+        && incoming().createdAt == request.time;
+        
+      allow update: if isSignedIn()
+        && isValidBooking(incoming())
+        && (
+          isAdmin() ||
+          (resource.data.userId == request.auth.uid 
+           && incoming().userId == existing().userId
+           && incoming().status == existing().status
+           && incoming().diff(existing()).affectedKeys().hasOnly(['fullName', 'email', 'phone', 'packageType', 'travelersCount', 'departureDate', 'specialRequests', 'updatedAt']))
+        );
+        
+      allow delete: if isAdmin();
+    }
+
+    // Inquiries Rules - anyone can post, but only admin can read
+    match /inquiries/{inquiryId} {
+      allow read: if isAdmin();
+      
+      allow create: if isValidInquiry(incoming())
+        && incoming().createdAt == request.time;
+        
+      allow update, delete: if isAdmin();
+    }
+  }
+}
