@@ -5,6 +5,7 @@ export interface TourPackage {
   duration: string;
   price: string;
   imageAlt: string;
+  imageUrl: string;
   features: string[];
   itinerary: string[];
 }
@@ -26,6 +27,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
     duration: '15 Days',
     price: 'PKR 185,000',
     imageAlt: 'Umrah Holy Mosque',
+    imageUrl: 'https://images.unsplash.com/photo-1542856391-010fb87dcfed?auto=format&fit=crop&w=800&q=80',
     features: [
       'Eco Hotel in Makkah (900m with shuttle service)',
       'Close Hotel in Madinah (500m walking)',
@@ -48,6 +50,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
     duration: '10 Days',
     price: 'PKR 320,000',
     imageAlt: 'Luxury Haram view',
+    imageUrl: 'https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&w=800&q=80',
     features: [
       '5-Star Makkah Hotel (Haram Front, e.g., Swissotel/Pulman Zamzam)',
       '5-Star Madinah Hotel (Front row, e.g., Oberoi/Al-Haram)',
@@ -70,6 +73,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
     duration: '21 Days',
     price: 'PKR 1,550,000',
     imageAlt: 'Holy Kaaba',
+    imageUrl: 'https://images.unsplash.com/photo-1565552645632-d725f8b186ef?auto=format&fit=crop&w=800&q=80',
     features: [
       'Premium Maktab Category-A near Jamarat in Mina',
       'Sofa beds, air-conditioned tents in Arafat',
@@ -92,6 +96,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
     duration: '5 Days / 4 Nights',
     price: 'PKR 245,000',
     imageAlt: 'Dubai Marina Skylines',
+    imageUrl: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80',
     features: [
       '4-Star hotel stay with breakfast',
       'Desert Safari with VIP BBQ dinner and Tanoura Dance',
@@ -114,6 +119,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
     duration: '8 Days',
     price: 'PKR 490,000',
     imageAlt: 'Turkey Hot Air Balloons',
+    imageUrl: 'https://images.unsplash.com/photo-1507608869274-d3177c8bb4c7?auto=format&fit=crop&w=800&q=80',
     features: [
       'Stay in boutique cave hotels in Cappadocia & 4-Star Istanbul hotels',
       'Classic Cappadocia hot air balloon flight reservation assistance',
@@ -139,6 +145,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
     duration: '7 Days',
     price: 'PKR 310,000',
     imageAlt: 'Petrona Twin Towers',
+    imageUrl: 'https://images.unsplash.com/photo-1596422846543-75c6fc18a523?auto=format&fit=crop&w=800&q=80',
     features: [
       '3 Nights in Kuala Lumpur & 3 Nights in Singapore',
       'Luxury air-conditioned Coach transit between cities',
@@ -236,20 +243,23 @@ export const GENERAL_REVIEWS = [
     name: 'Habib-Ur-Rehman',
     location: 'Faisalabad',
     quote: 'NASEEB GLOBAL TRAVEL & TOURS arranged our custom family Umrah trip flawlessy. The Swissotel hotel was right in front of Haram and the private coach transport made the journey extremely easy for my parents.',
-    rating: 5
+    rating: 5,
+    avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80'
   },
   {
     id: '2',
     name: 'Muhammad Bilal',
     location: 'Samundri Road',
     quote: 'Applied for Turkey tourism visa assistance through them. Incredible service! They structured my financial documentation and cover-letter, and the sticker visa got approved inside 14 days without a hassle.',
-    rating: 5
+    rating: 5,
+    avatarUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80'
   },
   {
     id: '3',
     name: 'Aisha Siddique',
     location: 'Sargodha Road',
     quote: 'Unbelievable customer support. They helped me plan an custom 5-day Dubai trip. We got luxury seats, great hotels, and they kept track of our flight check-ins via WhatsApp throughout. Highly recommend!',
-    rating: 5
+    rating: 5,
+    avatarUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80'
   }
 ];

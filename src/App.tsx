@@ -21,7 +21,7 @@ import DashboardView from './components/DashboardView';
 import ContactView from './components/ContactView';
 
 // Paths for custom generated logotype and banners
-const logoImage = '/src/assets/images/naseeb_travels_logo_1780398880848.png';
+const logoImage = '/src/assets/images/naseeb_gold_logo_1780471253314.png';
 
 export default function App() {
   // Navigation State

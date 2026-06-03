@@ -104,20 +104,32 @@ export default function PackagesView({ onSelectPackage }: PackagesViewProps) {
               key={pkg.id} 
               className="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all flex flex-col justify-between"
             >
-              {/* Header block with prices */}
-              <div className="bg-emerald-900 p-6 text-white relative">
-                <div className="flex justify-between items-start">
-                  <span className="bg-amber-500 text-emerald-950 font-mono text-[10px] uppercase font-extrabold px-2.5 py-1 rounded">
+              {/* Image banner block */}
+              <div className="h-48 w-full overflow-hidden relative">
+                <img 
+                  src={pkg.imageUrl} 
+                  alt={pkg.imageAlt} 
+                  className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/90 via-emerald-950/30 to-transparent" />
+                <div className="absolute top-4 left-4">
+                  <span className="bg-amber-500 text-emerald-950 font-mono text-[10px] uppercase font-extrabold px-2.5 py-1 rounded shadow">
                     {pkg.category}
                   </span>
-                  <span className="text-amber-400 font-mono text-sm font-semibold">{pkg.duration}</span>
                 </div>
-                <h3 className="text-xl font-bold font-serif text-white mt-3 leading-tight">{pkg.title}</h3>
-                
-                <div className="mt-4 pt-3 border-t border-emerald-800/60 flex items-center justify-between">
-                  <span className="text-xs text-emerald-200 font-mono">Guaranteed Rate</span>
-                  <span className="text-amber-300 font-mono font-bold text-lg">{pkg.price}</span>
+                <div className="absolute top-4 right-4 bg-emerald-950/80 backdrop-blur-sm border border-emerald-800/40 px-2.5 py-0.5 rounded text-amber-400 font-mono text-xs font-semibold">
+                  {pkg.duration}
                 </div>
+                <div className="absolute bottom-4 left-4 right-4">
+                  <h3 className="text-lg md:text-xl font-bold font-serif text-white leading-tight drop-shadow-md">{pkg.title}</h3>
+                </div>
+              </div>
+
+              {/* Price display stripe */}
+              <div className="bg-emerald-900 px-6 py-3.5 border-y border-emerald-800/50 flex items-center justify-between text-white">
+                <span className="text-[10px] text-emerald-200 font-mono uppercase tracking-widest">GUARANTEED RATE</span>
+                <span className="text-amber-300 font-mono font-bold text-base md:text-lg">{pkg.price}</span>
               </div>
 
               {/* Inclusions package list */}
@@ -219,6 +231,41 @@ export default function PackagesView({ onSelectPackage }: PackagesViewProps) {
               </select>
             </div>
 
+          </div>
+
+          {/* Real-time Dynamic Selection Preview Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 pt-6 border-t border-slate-800/80">
+            <div className="bg-slate-800/60 rounded-2xl overflow-hidden border border-slate-700 p-4 flex items-center space-x-4">
+              <img 
+                src={hotelPref === 'economy' ? 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=400&q=80' : hotelPref === 'standard' ? 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=400&q=80' : 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=400&q=80'}
+                alt="Selected lodging" 
+                className="w-24 h-20 object-cover rounded-xl shrink-0"
+                referrerPolicy="no-referrer"
+              />
+              <div>
+                <span className="text-[9px] font-mono uppercase bg-amber-400 text-slate-900 px-2.5 py-0.5 rounded font-extrabold tracking-wider">SELECTED HOTEL</span>
+                <h4 className="text-sm font-bold mt-1 text-white capitalize">{hotelPref} Rooms</h4>
+                <p className="text-[10px] text-slate-300 mt-0.5">
+                  {hotelPref === 'economy' ? 'Clean shuttled rooms (900m+ from Haram)' : hotelPref === 'standard' ? 'Comfortable 4-Star setup (400-500m walking)' : 'Ultimate 5-Star experience directly frontrow'}
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-slate-800/60 rounded-2xl overflow-hidden border border-slate-700 p-4 flex items-center space-x-4">
+              <img 
+                src={transportPref === 'shared' ? 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=400&q=80' : 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=400&q=80'}
+                alt="Selected transport" 
+                className="w-24 h-20 object-cover rounded-xl shrink-0"
+                referrerPolicy="no-referrer"
+              />
+              <div>
+                <span className="text-[9px] font-mono uppercase bg-emerald-500 text-slate-950 px-2.5 py-0.5 rounded font-extrabold tracking-wider">SELECTED LOGISTICS</span>
+                <h4 className="text-sm font-bold mt-1 text-white capitalize">{transportPref.replace('-', ' ')}</h4>
+                <p className="text-[10px] text-slate-300 mt-0.5">
+                  {transportPref === 'shared' ? 'Full air-conditioned luxury shared coaches' : 'VIP private SUVs with professional dedicated chauffeurs'}
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Calculate Event triggers */}

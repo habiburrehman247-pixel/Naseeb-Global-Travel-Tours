@@ -6,6 +6,26 @@ interface VisaViewProps {
   onSelectVisa: (countryName: string) => void;
 }
 
+const getCountryImage = (country: string) => {
+  const norm = country.toLowerCase();
+  if (norm.includes('saudi')) {
+    return 'https://images.unsplash.com/photo-1580418827493-f2b22c0a76cb?auto=format&fit=crop&w=400&h=250&q=80';
+  }
+  if (norm.includes('emirates') || norm.includes('uae')) {
+    return 'https://images.unsplash.com/photo-1526495124232-a04e1849168a?auto=format&fit=crop&w=400&h=250&q=80';
+  }
+  if (norm.includes('turkey')) {
+    return 'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=400&h=250&q=80';
+  }
+  if (norm.includes('schengen') || norm.includes('europe')) {
+    return 'https://images.unsplash.com/photo-1486299267070-83823f5448dd?auto=format&fit=crop&w=400&h=250&q=80';
+  }
+  if (norm.includes('malaysia')) {
+    return 'https://images.unsplash.com/photo-1529154036614-a60975f5c760?auto=format&fit=crop&w=400&h=250&q=80';
+  }
+  return 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=400&h=250&q=80';
+};
+
 export default function VisaView({ onSelectVisa }: VisaViewProps) {
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -58,14 +78,22 @@ export default function VisaView({ onSelectVisa }: VisaViewProps) {
                 
                 {/* Header Row */}
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-100">
-                  <div className="space-y-1">
-                    <div className="flex items-center space-x-2.5">
-                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 inline-block shrink-0" />
-                      <h3 className="text-2xl font-bold text-slate-900">{visa.country}</h3>
+                  <div className="flex items-center space-x-4">
+                    <img 
+                      src={getCountryImage(visa.country)} 
+                      alt={visa.country} 
+                      className="w-16 h-12 object-cover rounded-xl hidden sm:block shrink-0 border border-slate-200 shadow-sm"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="space-y-1">
+                      <div className="flex items-center space-x-2.5">
+                        <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 inline-block shrink-0" />
+                        <h3 className="text-2xl font-bold text-slate-900">{visa.country}</h3>
+                      </div>
+                      <p className="text-xs text-emerald-800 font-mono font-extrabold bg-emerald-100/60 px-2.5 py-1 rounded border border-emerald-200 inline-block mt-1">
+                        {visa.visaType}
+                      </p>
                     </div>
-                    <p className="text-xs text-emerald-800 font-mono font-extrabold bg-emerald-100/60 px-2.5 py-1 rounded border border-emerald-200 inline-block mt-1">
-                      {visa.visaType}
-                    </p>
                   </div>
 
                   <div className="text-left md:text-right space-y-1">

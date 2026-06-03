@@ -3,7 +3,7 @@ import { Compass, ArrowRight, Check, MapPin, Phone, Mail, Star, Heart, Award, Sh
 import { GENERAL_REVIEWS } from '../data';
 
 // Paths for custom generated assets
-const logoImage = '/src/assets/images/naseeb_travels_logo_1780398880848.png';
+const logoImage = '/src/assets/images/naseeb_gold_logo_1780471253314.png';
 const hajjBanner = '/src/assets/images/hajj_umrah_banner_1780398906578.png';
 const internationalBanner = '/src/assets/images/international_travel_banner_1780398927558.png';
 
@@ -115,34 +115,64 @@ export default function HomeView({ onNavigate, onSelectPackage }: HomeViewProps)
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
           
-          <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all">
-            <div className="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center mb-6">
-              <ShieldCheck className="w-6 h-6" />
+          <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
+            <div className="h-44 w-full overflow-hidden relative">
+              <img 
+                src="https://images.unsplash.com/photo-1541971875076-8f970d573be6?auto=format&fit=crop&w=600&q=80" 
+                alt="Verified Luxury Lodgings in Makkah and Madinah" 
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm p-1.5 rounded-lg border border-slate-200 text-amber-600">
+                <ShieldCheck className="w-5 h-5" />
+              </div>
             </div>
-            <h3 className="text-lg font-bold text-slate-900">100% Verified Lodgings</h3>
-            <p className="text-sm text-slate-500 mt-2 leading-relaxed">
-              We own upfront hotel reservation allotments in Makkah &amp; Madinah. The exact distance is documented in your plan, with no last-minute surprise relocation clauses.
-            </p>
+            <div className="p-6">
+              <h3 className="text-lg font-bold text-slate-900">100% Verified Lodgings</h3>
+              <p className="text-sm text-slate-500 mt-2 leading-relaxed">
+                We own upfront hotel reservation allotments in Makkah &amp; Madinah. The exact distance is documented in your plan, with no last-minute surprise relocation clauses.
+              </p>
+            </div>
           </div>
 
-          <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all">
-            <div className="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center mb-6">
-              <Compass className="w-6 h-6" />
+          <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
+            <div className="h-44 w-full overflow-hidden relative">
+              <img 
+                src="https://images.unsplash.com/photo-1473177104440-ffee2f376098?auto=format&fit=crop&w=600&q=80" 
+                alt="Scholar Guided Spiritual Umrah Tours" 
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm p-1.5 rounded-lg border border-slate-200 text-emerald-600">
+                <Compass className="w-5 h-5" />
+              </div>
             </div>
-            <h3 className="text-lg font-bold text-slate-900">Spiritual Guidance Desk</h3>
-            <p className="text-sm text-slate-500 mt-2 leading-relaxed">
-              Experienced, scholar-led guides travel along with groups to conduct workshops on Umrah/Hajj rituals, resolving all spiritual inquiries on the spot.
-            </p>
+            <div className="p-6">
+              <h3 className="text-lg font-bold text-slate-900">Spiritual Guidance Desk</h3>
+              <p className="text-sm text-slate-500 mt-2 leading-relaxed">
+                Experienced, scholar-led guides travel along with groups to conduct workshops on Umrah/Hajj rituals, resolving all spiritual inquiries on the spot.
+              </p>
+            </div>
           </div>
 
-          <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all">
-            <div className="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-600 flex items-center justify-center mb-6">
-              <Clock className="w-6 h-6" />
+          <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
+            <div className="h-44 w-full overflow-hidden relative">
+              <img 
+                src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80" 
+                alt="Real-time support WhatsApp hotline" 
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm p-1.5 rounded-lg border border-slate-200 text-blue-600">
+                <Clock className="w-5 h-5" />
+              </div>
             </div>
-            <h3 className="text-lg font-bold text-slate-900">Real-Time Support Hub</h3>
-            <p className="text-sm text-slate-500 mt-2 leading-relaxed">
-              All pilgrims receive dynamic group managers keeping them connected via WhatsApp for shuttle times, visa stages, health guidelines, and luggage logs.
-            </p>
+            <div className="p-6">
+              <h3 className="text-lg font-bold text-slate-900">Real-Time Support Hub</h3>
+              <p className="text-sm text-slate-500 mt-2 leading-relaxed">
+                All pilgrims receive dynamic group managers keeping them connected via WhatsApp for shuttle times, visa stages, health guidelines, and luggage logs.
+              </p>
+            </div>
           </div>
 
         </div>
@@ -206,6 +236,114 @@ export default function HomeView({ onNavigate, onSelectPackage }: HomeViewProps)
         </div>
       </section>
 
+      {/* DETAILED ROADMAP FLOWCHART DIAGRAM WITH IMAGES */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div className="text-center max-w-3xl mx-auto">
+          <span className="text-xs font-mono font-bold text-amber-600 bg-amber-500/10 border border-amber-500/20 px-3.5 py-1 rounded-full uppercase tracking-widest">
+            OPERATIONAL PIPELINE
+          </span>
+          <h2 className="text-3xl font-extrabold text-slate-900 mt-2">
+            The NASEEB GLOBAL Sacred Tour Roadmap
+          </h2>
+          <p className="text-slate-500 text-sm mt-2 font-light">
+            An open, step-by-step visual map representing how your spiritual aspirations are organized and verified into fully secure, physical flight schedules and real-time hotel keys.
+          </p>
+        </div>
+
+        {/* Visual Roadmap Blocks */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative mt-10">
+          
+          {/* Step 1 */}
+          <div className="bg-slate-50 rounded-2xl border border-slate-200/80 p-5 space-y-4 relative hover:shadow-md transition-all flex flex-col justify-between">
+            <div>
+              <div className="h-32 w-full overflow-hidden rounded-xl mb-3 relative">
+                <img 
+                  src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80" 
+                  alt="Tailored Consultation & Selection" 
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+                <span className="absolute top-2 left-2 bg-emerald-900 text-amber-300 font-mono text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center">1</span>
+              </div>
+              <h4 className="font-bold text-sm text-emerald-950">1. Tailored Consultation</h4>
+              <p className="text-[11px] text-slate-500 mt-1 lines-clamp-3">
+                Meet at our Faisalabad offices to outline custom hotel preferences, dates, transport nodes, and companion counts.
+              </p>
+            </div>
+            <div className="pt-2 border-t border-slate-200 text-[10px] font-mono text-emerald-800 font-bold">
+              EST. DURATION: 1 HOUR
+            </div>
+          </div>
+
+          {/* Step 2 */}
+          <div className="bg-slate-50 rounded-2xl border border-slate-200/80 p-5 space-y-4 relative hover:shadow-md transition-all flex flex-col justify-between">
+            <div>
+              <div className="h-32 w-full overflow-hidden rounded-xl mb-3 relative">
+                <img 
+                  src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=400&q=80" 
+                  alt="Embassy Document File Indexing" 
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+                <span className="absolute top-2 left-2 bg-emerald-900 text-amber-300 font-mono text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center">2</span>
+              </div>
+              <h4 className="font-bold text-sm text-emerald-950">2. Professional Indexing</h4>
+              <p className="text-[11px] text-slate-500 mt-1 lines-clamp-3">
+                Our file team compiles biometric logs, ledger sheets, and background cards matching strict consular criteria.
+              </p>
+            </div>
+            <div className="pt-2 border-t border-slate-200 text-[10px] font-mono text-emerald-800 font-bold">
+              EST. DURATION: 1-2 DAYS
+            </div>
+          </div>
+
+          {/* Step 3 */}
+          <div className="bg-slate-50 rounded-2xl border border-slate-200/80 p-5 space-y-4 relative hover:shadow-md transition-all flex flex-col justify-between">
+            <div>
+              <div className="h-32 w-full overflow-hidden rounded-xl mb-3 relative">
+                <img 
+                  src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=400&q=80" 
+                  alt="Verified Direct Seat & Hotel Ingress Booking" 
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+                <span className="absolute top-2 left-2 bg-emerald-900 text-amber-300 font-mono text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center">3</span>
+              </div>
+              <h4 className="font-bold text-sm text-emerald-950">3. Direct Hotel Allotment</h4>
+              <p className="text-[11px] text-slate-500 mt-1 lines-clamp-3">
+                Secure flight routes and room confirmations, loading physical PNR credentials directly into the Naseeb Pilgrim Suite.
+              </p>
+            </div>
+            <div className="pt-2 border-t border-slate-200 text-[10px] font-mono text-emerald-800 font-bold">
+              EST. DURATION: 24 HOURS
+            </div>
+          </div>
+
+          {/* Step 4 */}
+          <div className="bg-slate-50 rounded-2xl border border-slate-200/80 p-5 space-y-4 relative hover:shadow-md transition-all flex flex-col justify-between">
+            <div>
+              <div className="h-32 w-full overflow-hidden rounded-xl mb-3 relative">
+                <img 
+                  src="https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&w=400&q=80" 
+                  alt="Saudi Terminal Guide Escort & Transit" 
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+                <span className="absolute top-2 left-2 bg-emerald-900 text-amber-300 font-mono text-xs font-bold w-6 h-6 rounded-full flex items-center justify-center">4</span>
+              </div>
+              <h4 className="font-bold text-sm text-emerald-950">4. Scholar Guides Escort</h4>
+              <p className="text-[11px] text-slate-500 mt-1 lines-clamp-3">
+                Ground crew receives you at Jeddah or Madinah with private coaches, guiding you from terminal doors to lodging lobbies.
+              </p>
+            </div>
+            <div className="pt-2 border-t border-slate-200 text-[10px] font-mono text-emerald-800 font-bold">
+              EST. DURATION: ACTIVE DAILY
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       {/* CORE STATISTICS RHYTHM */}
       <section className="bg-white border-y border-slate-200 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -256,9 +394,17 @@ export default function HomeView({ onNavigate, onSelectPackage }: HomeViewProps)
             </p>
 
             <div className="flex items-center justify-between pt-4 border-t border-slate-100">
-              <div>
-                <h4 className="text-base font-bold text-slate-900">{GENERAL_REVIEWS[activeReviewIndex].name}</h4>
-                <p className="text-xs text-slate-400 font-mono">{GENERAL_REVIEWS[activeReviewIndex].location}</p>
+              <div className="flex items-center space-x-4">
+                <img 
+                  src={GENERAL_REVIEWS[activeReviewIndex].avatarUrl} 
+                  alt={GENERAL_REVIEWS[activeReviewIndex].name} 
+                  className="w-12 h-12 rounded-full object-cover border-2 border-emerald-900 shadow-sm"
+                  referrerPolicy="no-referrer"
+                />
+                <div>
+                  <h4 className="text-base font-bold text-slate-900">{GENERAL_REVIEWS[activeReviewIndex].name}</h4>
+                  <p className="text-xs text-slate-400 font-mono tracking-wide">{GENERAL_REVIEWS[activeReviewIndex].location}</p>
+                </div>
               </div>
               
               <div className="flex space-x-1.5">
